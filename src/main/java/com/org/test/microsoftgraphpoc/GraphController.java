@@ -54,5 +54,12 @@ public class GraphController {
 		System.out.println("******");
 		return String.format("Hello %s!", name);
 	}
+	
+	@GetMapping("/helloCert")
+	public String helloCert(@RequestParam(value = "name", defaultValue = "World") String name) throws Exception {
+		ClientCredentialGrant clientCredentialGrant = new ClientCredentialGrant();
+		clientCredentialGrant.graphCert();
+		return String.format("Hello %s!", name);
+	}
 
 }
